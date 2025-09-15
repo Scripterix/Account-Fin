@@ -1,0 +1,27 @@
+<h1>Account-Fin</h1>
+<section>
+  <p>Accounts: {{ store.totalAccounts() }}</p>
+  <p>Transactions: {{ store.totalTransactions() }}</p>
+  <p>PLN Balance: {{ store.totalBalancePLN() | number: "1.2-2" }} PLN</p>
+</section>
+<section>
+  <h2>Accounts</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Currency</th>
+        <th>Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of store.accounts()">
+        <td>{{ a.name }}</td>
+        <td>{{ a.number }}</td>
+        <td>{{ a.currency }}</td>
+        <td>{{ a.balance | number: "1.2-2" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
